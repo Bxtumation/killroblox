@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <tlhelp32.h>
-
-bool KillProcessByName(const char* processName) {
+bool kill(const char* processName) {
     HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcessSnap == INVALID_HANDLE_VALUE) return false;
     PROCESSENTRY32 pe32;
@@ -26,5 +25,5 @@ bool KillProcessByName(const char* processName) {
 }
 
 int main() {
-    KillProcessByName("RobloxPlayerBeta.exe");
+    kill("RobloxPlayerBeta.exe");
 }
